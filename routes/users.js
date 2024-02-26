@@ -5,7 +5,7 @@ import {
 
 
 const router = express.Router();
-const users = []
+let users = []
 
 router.get('/', (req, res) => {
     console.log(users);
@@ -25,12 +25,24 @@ router.post('/', (req, res) => {
     res.send(`POST route has done sucessfully and the user is ${user.Fname}`);
 });
 
+
+// get the specific user deatil usoing the unique id
 router.get('/:id', (req, res) => {
     const {
         id
     } = req.params;
     const foundUser = users.find((user) => user.id === id);
     res.send(foundUser);
+});
+
+// now deleteing the user based on the id
+router.delete("/:id", (req, res) => {
+    const {
+        userid
+    } = req.params;
+    console.log(userid);
+    users = users.filter((user) => user.id !== userid);
+    res.send(`The deleted id:${userid} has been done successfully`);
 });
 
 
