@@ -32,7 +32,7 @@ export const deleteData = (req, res) => {
     res.send(`The deleted id: ${id} has been done successfully`);
 }
 
-export const editData = (req, res) => {
+export const updateData = (req, res) => {
     const uniqueId = req.params.id;
     const {
         fName,

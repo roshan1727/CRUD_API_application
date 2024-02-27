@@ -1,6 +1,6 @@
 import express from "express";
 import {
-    editData,
+    updateData,
     deleteData,
     getUser,
     createUser,
@@ -21,6 +21,6 @@ router.get('/:id', getUser);
 router.delete("/:id", deleteData);
 
 // to do a partial edit of the user detail using patch
-router.patch('/:id', editData);
+router.patch('/:id', updateData);
 
 export default router;
